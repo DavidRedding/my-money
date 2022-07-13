@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import useLogin from '../../hooks/useLogin';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login, isPending, error } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    login(email, password);
   };
 
   return (
@@ -33,9 +35,19 @@ const Login = () => {
         />
       </label>
 
-      <button className="block px-3 py-1 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50">
-        Login
-      </button>
+      {!isPending && (
+        <button className="block px-3 py-1 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50">
+          Login
+        </button>
+      )}
+
+      {isPending && (
+        <button disabled className="block px-3 py-1 text-gray-500 border border-gray-400 rounded ">
+          loading...
+        </button>
+      )}
+
+      {error && <p className="mt-1">{error}</p>}
     </form>
   );
 };
