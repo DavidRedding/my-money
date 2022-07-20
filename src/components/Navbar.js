@@ -7,8 +7,8 @@ const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   return (
-    <nav className="p-4 bg-green-50">
-      <ul className="flex items-center max-w-[960px] mx-auto ">
+    <nav className="py-4 bg-green-50">
+      <ul className="flex items-center max-w-6xl px-10 mx-auto ">
         <li className="mr-auto text-xl font-bold"><Link to="/">myMoney</Link></li>
 
         {!user && (
