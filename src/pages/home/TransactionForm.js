@@ -20,9 +20,9 @@ const TransactionForm = ({ uid }) => {
 
   return (
     <>
-      <h3 className="text-lg font-bold text-green-700">Add a Transaction</h3>
+      <h3 className="text-lg font-bold text-green-600">Add a Transaction</h3>
 
-      <form className="p-3 mt-4 bg-green-700 rounded" onSubmit={handleSubmit}>
+      <form className="p-3 mt-4 bg-green-600 rounded" onSubmit={handleSubmit}>
         <label className="block mb-4 ">
           <h3 className="mb-1 text-sm text-green-100 ">Transaction Name:</h3>
           <input
