@@ -1,5 +1,4 @@
 const TransactionList = ({ documents }) => {
-  console.log(documents);
   return (
     <ul>
       {documents.map((doc) => (
