@@ -7,7 +7,6 @@ const Home = () => {
   const { user } = useAuthContext();
   const { documents, error } = useCollection('transactions', ['uid', '==', user.uid], ['createdAt', 'desc']);
 
-  console.log(`test`);
   return (
     <div className="grid max-w-6xl grid-cols-3 gap-16 p-10 mx-auto">
       <div className="col-span-2">
