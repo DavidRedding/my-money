@@ -9,24 +9,22 @@ const Navbar = () => {
   const { user } = useAuthContext();
   return (
     <nav className="py-4 bg-green-50 ">
-      <ul className="flex items-center max-w-6xl px-10 mx-auto ">
+      <ul className="flex items-center max-w-6xl px-5 mx-auto xs:px-10 ">
         <li className="mr-auto text-xl font-bold"><Link to="/"><img className="h-6" src={rm2} alt="Logo" /></Link></li>
 
         {!user && (
           <>
-            <li><Link to="/login">login</Link></li>
+            <li className='hidden xs:block'><Link to="/login">login</Link></li>
             <li className="py-1 ml-4"><Link to="/signup">sign up</Link></li>
           </>
         )}
 
         {user && (
           <>
-           {/* Code doesn't work as intended :/
-           <li className='hidden xs:visible'>{`hello, ${user.displayName}`}</li> */}
-           <li className='text-green-50 xs:text-black'>{`hello, ${user.displayName}`}</li>
+           <li className='hidden ml-4 xs:block'>{`hello, ${user.displayName}`}</li> 
             <li> 
               <button
-                className="block px-3 py-1 ml-4 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50"
+                className="block px-3 py-1 ml-3 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50"
                 onClick={logout}
               >
                 logout
