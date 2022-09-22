@@ -15,7 +15,8 @@ const TransactionList = ({ documents }) => {
           <p className="text-2xl font-bold text-gray-600 ">${doc.amount}</p>
 
           <img
-            className="absolute top-0 right-0 w-4 bg-gray-200 border pointer"
+            className="absolute top-0 right-0 w-4 bg-gray-200 border cursor-pointer "
+            alt="delete icon"
             src={deleteIcon}
             onClick={() => deleteDocument(doc.id)}
           ></img>

@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+   match /transactions/{transaction} {
+     allow read,update,delete : if isLoggedIn() && isUsersTransaction();
+     allow create : if isLoggedIn() && isValidTransaction();
+   }
+  }
+  function isLoggedIn(){
+    // user must be authenticated
+    return request.auth != null;
+  }
+  
+  function isValidTransaction(){
+    // created doc's uid, must match the user's uid
+    return request.resource.data.uid == request.auth.uid;
+  }
+  
+  function isUsersTransaction(){
+    // accessed doc's uid must match user's uid
+    return resource.data.uid == request.auth.uid;
+  }
+}
